@@ -49,8 +49,12 @@ print(altura)
 
 #Ejercicio 15 no me funciona la función lowe
 var1 = "PABLO"
-var1 = lower()
+var1 = lower(var1)
 print(var1)
 
 #Ejercicio 16 lo mismo que el anterior
+
+var1 = "PABLO"
+var1 = title(var1)
+print(var1)
 
