@@ -272,7 +272,7 @@ else:
     print(f"you have to pay {pencil*60}.")
 """
 #exercise 20
-
+"""
 note_1 = int(input(" first note: "))
 note_2 = int(input(" second note: "))
 note_3 = int(input(" third note: "))
@@ -284,4 +284,4 @@ if average>= 6:
     print("you passed.")
 else: 
     print("you failed.")
-
+"""
