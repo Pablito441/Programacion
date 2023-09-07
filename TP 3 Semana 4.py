@@ -12,7 +12,7 @@ edad = int(input("cuál es su edad?: "))
 for i in range(1,edad+1):
     print("Cumpliste ", i, "año/s")
 """
-#Ejercicio 3 efasdasd validar que sea entero y positivo
+#Ejercicio 3
 """
 ent_posi = int(input(" Ingrese un número: "))
 for i in range(ent_posi):
@@ -31,7 +31,7 @@ for i in range(num,0,-1):
     else:
         print(i, end=", ")
 """
-#Ejercicio 5asdasdasdasdwasda tengo que revisar el ejercicio
+#Ejercicio 
 """
 inversion = int(input("¿Cuánto va a invertir?: "))
 interes = int(input("¿Cuál es el porcentaje del interés anual?: "))
@@ -45,18 +45,6 @@ for i in range(1, anios+1):
     print(f"Inversion total: {aux}")
 """
 
-# Ejercicio 5  asdasdasdsasdasd tengo que revisar el ejercicio
-""" 
-cantidad_inversion = int(input("Ingrese la cantidad que desea invertir: "))
-interes = int(input("Ingrese el interés anual: "))
-tiempo =  int(input("Ingrese la cantidad de años: "))
-capital_acumulado = cantidad_inversion
-for i in range(1, tiempo+1):
-    nuevo_interes = (capital_acumulado*interes)/100
-    print("EL INTERES ES:", nuevo_interes)
-    capital_acumulado = capital_acumulado + nuevo_interes
-    print(f"Año {i}:\nCapital invertido:{cantidad_inversion}\nCapital invertido mas intereses: {capital_acumulado}")
-"""
 #Ejercicio 6
 """
 num = int(input("Ingresar un número: "))
@@ -77,18 +65,12 @@ for i in range(10):
 """
 # Ejercicio 8 
 
-#Escribir un programa que pida al usuario un número entero y muestre por pantalla un triángulo rectángulo como el de más abajo.
 """
-num = str(input("Ingresar un número: "))
-
-for i in range(len(num)):
-    aux = len(num) - i -1
-    for j in range(i+1):
-        if j == i:
-            print(num[aux])
-        else:
-            print(num[aux], end=(" "))
-        aux = aux + 1
+num = int(input("Enter a integer number: "))
+for i in range(1,num,2):
+    for j in range(i, o, -2):
+        print(j, end=" ")
+    print("")
 """
 #Ejercicio 9 
 """
@@ -314,7 +296,6 @@ else:
     print(f"Your purchase total is ${total}")
 """
 #Ejercicio 25
-
 num = int(input("Enter a positive integer: "))
 
 if num < 0:
@@ -328,5 +309,3 @@ else:
         factorial *= i
     
     print(f"The factorial of {num} is {factorial}")
-
-
