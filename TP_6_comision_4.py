@@ -100,10 +100,10 @@ print(" ")
 print("Primary school names not repeated in secondary school.")
 for name in non_repeated_names:
     print(name)
-
+"""
 #Ejercicio 7
 
-
+"""
 occurrences = {}
 num_strings = 0
 while num_strings < 50:
@@ -123,19 +123,163 @@ for caracter, cantidad in occurrences.items():
     print(f"'{caracter}': {cantidad}")
 """
 #Ejercicio 8
+"""
+import random
+goals = []
+for row in range(10):
+    row_list = []
+    for col in range(10):
+        if row == col:
+            row_list.append(0)
+        else: 
+            row_list.append(random.randint(0, 5))
+    goals.append(row_list)
+
+for row in goals:
+    for n in row: 
+        print(n, end= " ")
+    print()
+
+for team in range(10): 
+    wins = 0
+    draws = 0
+    losses = 0
+    goals_scored = 0
+    goals_received = 0
+    for opponent in range(10): 
+        if team != opponent:
+            if goals[team][opponent] > goals[opponent][team]:
+                wins += 1
+            elif goals[team][opponent] == goals[opponent][team]:
+                draws += 1
+            else:
+                losses += 1
+            goals_scored += goals[team][opponent]
+            goals_received += goals[opponent][team]
+    print(f"<<<  Team {team+1}   >>>\nWon {wins} matches.\nLost {losses} matches.\nDrew {draws} matches.")
+    if goals_scored > goals_received:
+        print(f"{goals_scored} goals scored.\n{goals_received} goals received.\nThere is a difference of {goals_scored - goals_received} goals.")
+    else: 
+        print(f"{goals_scored} goals scored.\n{goals_received} goals received.\nThere is a difference of {goals_received - goals_scored} goals.")
+    print(f"Accumulated a total of {goals_scored} points for team {team+1}\n ")
 
 
+"""
+# Ejercicio 9
 
+import random
 
-#Ejercicio 9
+rows = 4
+columns = 4
+board = [['||||' for _ in range(columns)] for _ in range(rows)]
+revealed_board = [['  ' for _ in range(columns)] for _ in range(rows)]
+
+def initialize_board():
+    numbers = list(range(1, (rows * columns) // 2 + 1)) * 2
+    random.shuffle(numbers)
+    index = 0
+    for i in range(rows):
+        for j in range(columns):
+            board[i][j] = '||||'
+            revealed_board[i][j] = str(numbers[index])
+            index += 1
+
+def print_board(board_to_print):
+    for i in range(rows):
+        print(' '.join(board_to_print[i]))
+
+def compare_elements(row1, column1, row2, column2):
+    element1 = revealed_board[row1 - 1][column1 - 1]
+    element2 = revealed_board[row2 - 1][column2 - 1]
+    
+    if element1 == element2:
+        print("¡Coincidencia!")
+        board[row1 - 1][column1 - 1] = '    '
+        board[row2 - 1][column2 - 1] = '    '
+        print_board(board)
+    else:
+        print("No coinciden.")
+
+initialize_board()
+
+print("Tablero inicial:")
+print_board(board)
+
+while True:
+    row1 = int(input("Ingrese la fila de la primera carta: "))
+    column1 = int(input("Ingrese la columna de la primera carta: "))
+    print("Elemento seleccionado: " + revealed_board[row1 - 1][column1 - 1])
+    
+    row2 = int(input("Ingrese la fila de la segunda carta: "))
+    column2 = int(input("Ingrese la columna de la segunda carta: "))
+    print("Elemento seleccionado: " + revealed_board[row2 - 1][column2 - 1])
+    
+    compare_elements(row1, column1, row2, column2)
+    
+    # Verificar si todas las parejas han sido encontradas
+    found_pairs = sum(row.count('    ') for row in board)
+    if found_pairs == rows * columns:
+        print("¡Felicidades! ¡Has encontrado todas las parejas!")
+        break
 
 
 
 #Ejercicio 10
+"""
+import random
+list_matriz = []
+while True:
+    num = int(input("Enter a number:"))
+    if num < 2: 
+        print("Error, try again.")
+    else:
+        break
 
+for f in range(num):
+    row = []
+    for c in range(num):
+        row.append(random.randint(1,9))
+    list_matriz.append(row)
 
+for row in list_matriz:
+    for n in row: 
+        print(n, end= " ")
+    print()
+
+print(" \nMain diagonal")
+for f in range(num):
+    for c in range(num):
+        if f == c:
+            print(list_matriz[f][c], end= " ")
+        else: 
+            print("*", end= " ")
+    print()
+
+print(" \nReverse diagonal")
+for f in range(num):
+    for c in range(num):
+        if f + c == num - 1:
+            print(list_matriz[f][c], end= " ")
+        else: 
+            print("*", end= " ")
+    print()
+
+"""
+#Ejercicio 11
+"""
+divisas = {'Euro': '€', 'Dollar': '$', 'Yen': '¥'}
+
+divisa = input("Ingresa una divisa: ")
+
+if divisa in divisas:
+    simbolo = divisas[divisa]
+    print(f"El símbolo de {divisa} es {simbolo}")
+else:
+    print("Divisa no encontrada en el diccionario")
+
+    """
 #Ejercicio 12
-
+"""
 name = input("Enter your name.\n-->  ")
 while True:
     age = int(input("Enter your age.\n-->  "))
@@ -148,3 +292,23 @@ cell_phone = int(input("Enter your cell phone number.\n-->  "))
 
 profile = {'name':name,'age':age,'address':address,'cell_phone':cell_phone }
 print(f"{profile['name']} tiene {profile['age']} años, vive en {profile['address']} y su número de teléfono es {profile['cell_phone']}.")
+
+"""
+#Ejercicio 13
+"""
+dictionary = {'manzana':900,'banana':1000,'naranja':700,'mandarina':650,'uva':1200}
+
+fruit = input("What fruit would you like?\n-->  ").lower()
+
+if fruit in dictionary:
+    while True:
+        kilograms = float(input("Enter a kilograms of fruit you want:\n-->  "))
+        if kilograms < 0:
+            print("Error,the number is incorrect.Try again.")
+        else:
+            break
+    print(f"{kilograms} kg of {fruit} is ${kilograms*dictionary[fruit]}.")
+else: 
+    print("The fruit isn't in the price dictionary.")
+
+"""
